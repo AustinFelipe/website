@@ -1,12 +1,15 @@
+using AustinSite.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AustinSite.Controllers
 {
     public class ArticlesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index([FromServices] ArticlesRepository articlesRep)
         {
-            return View();
+            var articles = articlesRep.Articles;
+
+            return View(articles);
         }
     }
 }
