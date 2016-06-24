@@ -1,3 +1,10 @@
+/src/obj
+/src/bin
+.DS_Store
+/src/.DS_Store
+/src/wwwroot/lib/*
+.vscode
+node_modules
 .sass-cache
 *.rbc
 capybara-*.html

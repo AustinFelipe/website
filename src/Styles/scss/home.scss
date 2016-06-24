@@ -1,0 +1,55 @@
+.col-1, .col-2, .col-3 {
+  float: left;
+  padding: 1.5em 2%;
+}
+
+.col-1 {
+  padding-left: 0;
+  width: 40%;
+}
+
+.col-2 {
+  width: 30%;
+}
+
+.col-3 {
+  padding-right: 0;
+  width: 30%;
+}
+
+.content {
+  h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  p {
+    color: $text-color;
+  }
+  .date {
+    font-size: .85em;
+  }
+  a.view-all {
+    color: $dark-color;
+    &:hover {
+      color: $highlight-color;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .col-1, .col-2, .col-3 {
+    width: 100%;
+    padding: 0;
+    margin: 1em 0;
+  }
+  
+  .col-1 {
+    hr {
+      margin-bottom: 1.7em;
+    }
+    p {
+      margin: 1em 0 0;
+    }
+  }
+}

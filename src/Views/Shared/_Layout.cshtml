@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Austin Felipe - @ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" async>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" async>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/application.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/app.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <header id="main_navigation" class="clearfix">
+        <a asp-controller="Home" asp-action="Index" class="name">Austin Felipe</a>
+        <nav>
+            <a asp-controller="Articles" asp-action="Index">Articles</a>
+            <a asp-controller="Projects" asp-action="Index">Projects</a>
+            <a asp-controller="Contact" asp-action="Index">Contact</a>
+        </nav>
+    </header>
+   
+   @RenderBody()
+
+    <footer id="main_footer">
+        <p class="copyrights">&copy; 2016 Austin Felipe</p>
+        <nav>
+            <a href="https://github.com/AustinFelipe" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/felipe_austin" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/austinfelipe89" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </nav>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
