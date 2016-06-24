@@ -1,0 +1,68 @@
+.centered_wrapper {
+  width: 80%;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: .85em;
+
+  article {
+    text-align: center;
+    h2 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+    p {
+      margin: 0;
+    }
+    hr {
+      margin: 2.5em auto;
+    }
+    .tags {
+      margin: 1.5em auto;
+      a {
+        border: 3px solid $dark-color;
+        padding: .2em .6em;
+        color: $dark-color;
+        display: inline-block;
+        &:hover {
+          color: $highlight-color;
+          text-decoration: none;
+          border-color: $highlight-color;
+        }
+      }
+    }
+  }
+  .search {
+    padding: .5em;
+    border: 3px solid $dark-color;
+    width: 80%;
+    margin: 4rem auto;
+    color: $text-color;
+    display: block;
+  }
+}
+
+.pagination {
+  text-align: center;
+  margin: 5em 0;
+  color: $dark-color;
+  a, .current, .disabled {
+    margin: 0 .8em;
+    padding: .8em 1.3em;
+  }
+  a {
+    color: $dark-color;
+    background: #FFF;
+    &:hover {
+      color: #FFF;
+      background: $highlight-color;
+      text-decoration: none;
+    }
+  }
+  .current {
+    background: $highlight-color;
+    color: #FFF;
+  }
+  .disabled {
+    color: $text-color;
+  }
+}
