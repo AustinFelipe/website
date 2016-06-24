@@ -1,3 +1,4 @@
+using AustinSite.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,8 @@ namespace AustinSite
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddScoped<ArticlesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
