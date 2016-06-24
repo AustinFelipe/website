@@ -1,3 +1,4 @@
+@model IEnumerable<ArticleModel>
 @{
     ViewData["Title"] = "List of Articles I've Written";
 }
@@ -6,54 +7,26 @@
 
 <div class="centered_wrapper">
     <input type="text" class="search" placeholder="Filter by title/tag">
-    <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
-        <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-        </div>
-        <hr>
-    </article>
 
+    @foreach (var article in Model)
+    {
     <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
+        <p class="date">@article.FormattedPublishedAt()</p>
+        <h2><a href="@article.Link" target="_blank">@article.Title</a></h2>
         <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
+            @foreach (var tag in article.Tags)
+            {
+            <a href="#">@tag</a>    
+            }
         </div>
         <hr>
     </article>
-
-    <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
-        <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-        </div>
-        <hr>
-    </article>
-
-    <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
-        <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-        </div>
-        <hr>
-    </article>
+    }
 </div>
 
-<div class="pagination">
+<!--<div class="pagination">
     <span class="previous_page disabled">Previous</span>
     <span class="current">1</span>
     <a href="#" rel="next">2</a>
     <a href="#" class="next_page">Next</a>
-</div>
+</div>-->
