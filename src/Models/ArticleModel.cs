@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AustinSite.Utils;
 
 namespace AustinSite.Models
 {
@@ -22,34 +23,7 @@ namespace AustinSite.Models
 
         public string FormattedPublishedAt()
         {
-            var days = new string[]
-            {
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            };
-
-            var months = new string[]
-            {
-                "Jan",
-                "Fev",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Ago",
-                "Set",
-                "Out",
-                "Nov",
-                "Dez"
-            };
-
-            return $"{days[(int)PublishedAt.DayOfWeek]} {months[(int)PublishedAt.Month]} {PublishedAt.Day} {PublishedAt.Year}";
+            return DateFormatter.GetFormattedDate(PublishedAt);
         }
     }
 }
