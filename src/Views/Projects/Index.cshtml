@@ -9,7 +9,7 @@
 <div class="centered_wrapper">
     <form asp-action="Index" asp-controller="Projects" method="GET">
         <input id="searchBy" type="text" class="search" name="searchBy" 
-            placeholder="Filter by title" value="@ViewBag.SearchBy">
+            placeholder="Filter by title/tag" value="@ViewBag.SearchBy">
     </form>
 
     @foreach (var project in Model)
