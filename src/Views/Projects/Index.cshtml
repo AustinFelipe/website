@@ -1,3 +1,5 @@
+@model IEnumerable<ProjectModel>
+
 @{
     ViewData["Title"] = "List of Projects I've Built";
 }
@@ -5,33 +7,32 @@
 <h1 id="page_title">Projects I've built</h1>
 
 <div class="centered_wrapper">
-    <input type="text" class="search" placeholder="Filter by title">
-    <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
-        <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-        </div>
-        <hr>
-    </article>
+    <form asp-action="Index" asp-controller="Projects" method="GET">
+        <input id="searchBy" type="text" class="search" name="searchBy" 
+            placeholder="Filter by title" value="@ViewBag.SearchBy">
+    </form>
 
+    @foreach (var project in Model)
+    {
     <article>
-        <p class="date">Monday Aug 28</p>
-        <h2><a href="#">Change Kestrel default url on Asp Net Core</a></h2>
+        <p class="date">@project.FormattedBuiltAt()</p>
+        <h2><a href="#">@project.Title</a></h2>
         <div class="tags">
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
-            <a href="#">asp net core</a>
+            @foreach (var tag in project.Tags)
+            {
+            <a href="#" data-tag="#searchBy">@tag</a>
+            }
         </div>
         <hr>
     </article>
+    }
 </div>
 
+@*
 <div class="pagination">
     <span class="previous_page disabled">Previous</span>
     <span class="current">1</span>
     <a href="#" rel="next">2</a>
     <a href="#" class="next_page">Next</a>
 </div>
+*@

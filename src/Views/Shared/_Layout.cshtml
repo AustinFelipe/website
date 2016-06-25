@@ -34,6 +34,13 @@
         </nav>
     </footer>
 
+    <environment names="Development">
+        <script src="~/js/application.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/app.min.js"></script>
+    </environment>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

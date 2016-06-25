@@ -5,9 +5,11 @@ namespace AustinSite.Controllers
 {
     public class ArticlesController : Controller
     {
-        public IActionResult Index([FromServices] ArticlesRepository articlesRep)
+        public IActionResult Index([FromServices] ArticlesRepository articlesRep, string searchBy)
         {
-            var articles = articlesRep.Articles;
+            var articles = articlesRep.GetArticlesByTitleAndTag(searchBy);
+
+            ViewBag.SearchBy = searchBy;
 
             return View(articles);
         }

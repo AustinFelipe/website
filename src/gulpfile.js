@@ -14,7 +14,7 @@ var paths = {
     minJs: webroot + "js/**/*.min.js",
     css: webroot + "css/**/*.css",
     minCss: webroot + "css/**/*.min.css",
-    concatJsDest: webroot + "js/site.min.js",
+    concatJsDest: webroot + "js/app.min.js",
     concatCssDest: webroot + "css/app.min.css"
 };
 
@@ -42,4 +42,4 @@ gulp.task("min:css", function () {
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:css"]);
+gulp.task("min", ["min:js", "min:css"]);

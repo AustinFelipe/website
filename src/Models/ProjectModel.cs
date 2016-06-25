@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using AustinSite.Utils;
 
 namespace AustinSite.Models
 {
@@ -8,6 +10,13 @@ namespace AustinSite.Models
 
         public string Title { get; set; }
 
-        public List<TagModel> Tags { get; set; }
+        public DateTime BuiltAt { get; set; }
+
+        public List<string> Tags { get; set; }
+
+        public string FormattedBuiltAt()
+        {
+            return DateFormatter.GetMonthYear(BuiltAt);
+        }
     }
 }

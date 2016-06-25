@@ -6,7 +6,10 @@
 <h1 id="page_title">Articles I've written</h1>
 
 <div class="centered_wrapper">
-    <input type="text" class="search" placeholder="Filter by title/tag">
+    <form asp-action="Index" asp-controller="Articles" method="GET">
+        <input id="searchBy" type="text" class="search" name="searchBy" 
+            placeholder="Filter by title/tag" value="@ViewBag.SearchBy">
+    </form>
 
     @foreach (var article in Model)
     {
@@ -16,7 +19,7 @@
         <div class="tags">
             @foreach (var tag in article.Tags)
             {
-            <a href="#">@tag</a>    
+            <a href="#" data-tag="#searchBy">@tag</a>    
             }
         </div>
         <hr>
@@ -24,9 +27,11 @@
     }
 </div>
 
-<!--<div class="pagination">
+@*
+<div class="pagination">
     <span class="previous_page disabled">Previous</span>
     <span class="current">1</span>
     <a href="#" rel="next">2</a>
     <a href="#" class="next_page">Next</a>
-</div>-->
+</div>
+*@
