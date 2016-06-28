@@ -24,6 +24,7 @@ namespace AustinSite
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile("credentials.json", optional: true)
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                 .Build();
                 
