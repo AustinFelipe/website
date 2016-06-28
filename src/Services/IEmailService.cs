@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace AustinSite.Services
 {
-    public interface IEmailSender
+    public interface IEmailService
     {
         Task SendEmailAsync(string email, string subject, string message);
     }
