@@ -1,4 +1,5 @@
 using AustinSite.Repositories;
+using AustinSite.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,11 @@ namespace AustinSite
             // Add framework services.
             services.AddMvc();
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ContactEmailService>();
             services.AddScoped<ArticlesRepository>();
             services.AddScoped<ProjectsRepository>();
         }
@@ -34,6 +40,8 @@ namespace AustinSite
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseSession();
+            
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
