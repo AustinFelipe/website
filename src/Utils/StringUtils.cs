@@ -6,5 +6,15 @@ namespace AustinSite.Utils
         {
             return removeFrom.ToLower().Replace("-", " ");
         }
+
+        public static string GetFirstName(this string name)
+        {
+            var names = name.Split(' ');
+
+            if (name.Length == 0)
+                return string.Empty;
+
+            return names[0];
+        }
     }
 }
