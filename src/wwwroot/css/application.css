@@ -646,5 +646,12 @@ body {
   max-width: 600px;
   margin: 3.5em auto;
   font-size: .85em; }
+  #contact_wrapper .message {
+    color: #fff;
+    padding: .5em 1em; }
+  #contact_wrapper .success {
+    background: #2ecc71; }
+  #contact_wrapper .error {
+    background: #e74c3c; }
 
 /*# sourceMappingURL=application.css.map */
