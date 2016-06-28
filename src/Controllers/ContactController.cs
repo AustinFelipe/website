@@ -22,7 +22,7 @@ namespace AustinSite.Controllers
         {
             try
             {
-                await contactEmailService.SendContactFromSite(name, fromEmail, message, "austin.felipe@live.com");
+                await contactEmailService.SendContactFromSite(name, fromEmail, message, "austin_ktz@hotmail.com");
                 await contactEmailService.SendSubscriberEmailAsync(name, fromEmail, message);
                 TempData["SuccessMessage"] = "Your message has been sent. Thanks for stopping by!";
             }
