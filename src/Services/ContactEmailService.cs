@@ -7,10 +7,10 @@ namespace AustinSite.Services
 {
     public class ContactEmailService
     {
-        private IEmailSender emailService;
+        private IEmailService emailService;
         private IMemoryCache memoryCache;
 
-        public ContactEmailService(IEmailSender emailService,
+        public ContactEmailService(IEmailService emailService,
             IMemoryCache memoryCache)
         {
             this.emailService = emailService;
@@ -34,9 +34,16 @@ namespace AustinSite.Services
                 templateData,
                 $"{name} contact you via Austin's site. Their email {fromEmail}. Their message {message}");
 
-            await emailService.SendEmailAsync(ownerEmail, 
-                "Contact via Austin's Site", 
-                template);
+            try
+            {
+                await emailService.SendEmailAsync(ownerEmail, 
+                    "Contact via Austin's Site", 
+                    template);
+            }
+            catch (System.Exception e)
+            {
+                throw e;
+            }
         }
 
         public async Task SendSubscriberEmailAsync(string name, 
@@ -53,9 +60,16 @@ namespace AustinSite.Services
                 templateData,
                 $"Hi {name.GetFirstName()}, I've received your message. As soon as possible, I will answer you.");
 
-            await emailService.SendEmailAsync(fromEmail, 
-                "I've received your message", 
-                template);
+            try
+            {
+                await emailService.SendEmailAsync(fromEmail, 
+                    "I've received your message", 
+                    template);    
+            }
+            catch (System.Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

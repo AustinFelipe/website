@@ -5,14 +5,24 @@
 <h1 id="page_title">Hi there!</h1>
 
 <div id="contact_wrapper">
-    <label for="">Name</label><br>
-    <input type="text">
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <h2 class="message error">@ViewBag.ErrorMessage</h2>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <h2 class="message success">@ViewBag.SuccessMessage</h2>
+    }
+    <form method="POST" asp-action="SendMessage" asp-controller="Contact">
+        <label for="Name">Name</label><br>
+        <input type="text" name="Name">
 
-    <label for="">Email</label><br>
-    <input type="text">
+        <label for="FromEmail">Email</label><br>
+        <input type="text" name="FromEmail">
 
-    <label for="">Message</label><br>
-    <textarea name="name"></textarea>
+        <label for="Message">Message</label><br>
+        <textarea name="Message"></textarea>
 
-    <input type="submit" value="SEND">
+        <input type="submit" value="SEND">
+    </form>
 </div>
