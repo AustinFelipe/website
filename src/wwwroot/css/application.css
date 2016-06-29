@@ -462,6 +462,9 @@ body {
   content: " ";
   display: block; }
 
+.responsive-image {
+  overflow: scroll; }
+
 #main_navigation {
   padding: 2.5em 5%;
   border-bottom: 1px solid #d5d5d5; }
@@ -640,6 +643,11 @@ body {
     color: #FFF; }
   .pagination .disabled {
     color: #9d9e9f; }
+
+.project-details {
+  margin-bottom: 2em; }
+  .project-details h2 {
+    font-size: 1.3em; }
 
 #contact_wrapper {
   width: 60%;
