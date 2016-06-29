@@ -53,5 +53,12 @@ namespace AustinSite.Repositories
                 .OrderByDescending(t => t.BuiltAt)
                 .ToList();
         }
+
+        public ProjectModel GetProjectById(int id)
+        {
+            return Projects
+                .Where(t => t.Id == id)
+                .FirstOrDefault();
+        }
     }
 }
