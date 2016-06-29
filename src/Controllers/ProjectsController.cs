@@ -5,13 +5,30 @@ namespace AustinSite.Controllers
 {
     public class ProjectsController : Controller
     {
-        public IActionResult Index([FromServices] ProjectsRepository projectRep, string searchBy)
+        public ProjectsRepository ProjectRep { get; }
+
+        public ProjectsController(ProjectsRepository projectRep)
         {
-            var projects = projectRep.GetProjectList(searchBy);
+            ProjectRep = projectRep;
+        }
+
+        public IActionResult Index(string searchBy)
+        {
+            var projects = ProjectRep.GetProjectList(searchBy);
 
             ViewBag.SearchBy = searchBy;
 
             return View(projects);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var project = ProjectRep.GetProjectById(id);
+
+            if (project == null)
+                return BadRequest();
+
+            return View(project);
         }
     }
 }
