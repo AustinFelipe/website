@@ -16,7 +16,7 @@
     {
     <article>
         <p class="date">@project.FormattedBuiltAt()</p>
-        <h2><a href="#">@project.Title</a></h2>
+        <h2><a asp-controller="Projects" asp-action="Details" asp-route-id="@project.Id">@project.Title</a></h2>
         <div class="tags">
             @foreach (var tag in project.Tags)
             {

@@ -28,7 +28,7 @@
         <hr>
         @foreach (var project in ViewBag.Projects)
         {
-        <a href="#">@project.Title</a>
+        <a asp-controller="Projects" asp-action="Details" asp-route-id="@project.Id">@project.Title</a>
         <p class="date">@project.FormattedBuiltAt()</p>
         }
         <a asp-controller="Projects" asp-action="Index" class="view-all">View all projects</a>
