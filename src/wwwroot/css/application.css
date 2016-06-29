@@ -645,9 +645,11 @@ body {
     color: #9d9e9f; }
 
 .project-details {
-  margin-bottom: 2em; }
+  margin: 2em auto; }
   .project-details h2 {
     font-size: 1.3em; }
+  .project-details li {
+    color: #9d9e9f; }
 
 #contact_wrapper {
   width: 60%;

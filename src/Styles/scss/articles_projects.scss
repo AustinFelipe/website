@@ -69,9 +69,13 @@
 }
 
 .project-details {
-  margin-bottom: 2em;
+  margin: 2em auto;
 
   h2 {
     font-size: 1.3em;
+  }
+
+  li {
+    color: $text-color;
   }
 }
