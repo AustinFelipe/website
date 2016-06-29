@@ -127,6 +127,10 @@ body {
   display: block;
 }
 
+.responsive-image {
+  overflow: scroll;
+}
+
 #main_navigation {
   padding: 2.5em 5%;
   border-bottom: 1px solid $light-color;

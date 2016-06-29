@@ -31,6 +31,7 @@
       }
     }
   }
+
   .search {
     padding: .5em;
     border: 3px solid $dark-color;
@@ -64,5 +65,13 @@
   }
   .disabled {
     color: $text-color;
+  }
+}
+
+.project-details {
+  margin-bottom: 2em;
+
+  h2 {
+    font-size: 1.3em;
   }
 }
