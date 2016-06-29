@@ -1,39 +1,51 @@
+@model ProjectModel
+
 @{
-    ViewData["Title"] = "Title do project";
+    ViewData["Title"] = Model.Title;
 }
 
-<h1 id="page_title">iPsic - Encontre um psicologo</h1>
+<h1 id="page_title">@Model.Title</h1>
 
 <div class="centered_wrapper project-details">
     <h2>Company</h2>
-    <p>Neurando</p>
+    <p>@Model.Company</p>
 
+    @if (!string.IsNullOrEmpty(Model.Link))
+    {
     <h2>Address</h2>
-    <p><a href="#" target="_blank">http://www.ipsic.com.br</a></p>
+    <p><a href="@Model.Link" target="_blank">@Model.Link</a></p>
+    }
 
     <h2>Brief</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel qui natus voluptatibus vero delectus hic eveniet nemo fuga. Inventore nostrum veniam odio eligendi sint illum totam corporis quis distinctio, saepe?</p>
+    <p>@Model.About</p>
 
-    <h2>Tecnologies</h2>
+    <h2>Tecnologies &amp; Tools</h2>
     <ul>
-        <li>asp net core</li>
-        <li>c#</li>
-        <li>postgres</li>
+        @foreach (var tecTools in Model.TechsAndTools)
+        {
+            <li>@tecTools</li>
+        }
     </ul>
 
     <h2>Length</h2>
-    <p>7 months</p>
+    <p>@Model.Length</p>
 
     <h2>Tags</h2>
     <ul>
-        <li>c#</li>
+        @foreach (var tag in Model.Tags)
+        {
+            <li>@tag</li>
+        }
     </ul>
 
+    @if (!string.IsNullOrEmpty(@Model.FlickrFirstPhotoUrl))
+    {
     <h2>Images</h2>
     <div class="responsive-image">
-        <a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/144570475@N04/albums/72157670369440425" title="iPsic">
-            <img src="https://c2.staticflickr.com/8/7386/27355436033_80e2e0bd39_c.jpg" width="800" height="277" alt="iPsic">
+        <a data-flickr-embed="true" data-footer="true" data-header="true" href="@Model.FlickrAlbumUrl" title="iPsic">
+            <img src="@Model.FlickrFirstPhotoUrl" width="800" height="277" alt="iPsic">
         </a>
     </div>
     <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+    }
 </div>
